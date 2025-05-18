@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Qian Wen Chee's Portfolio</title>
+  <title>Qian Wen Chee</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -62,6 +62,7 @@
               <li><a href="#">LexiCAL</a></li>
             </ul>
           </li>
+          <li><a href="publications.html">Publications</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -81,56 +82,72 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/hero-bg.jpeg" alt="" data-aos="fade-in">
 
       <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2>Nice to meet you! <br>I'm Qian Wen.</h2>
-            <p>I'm a <span id="typed-text"></span><span class="cursor">|</span></p>
-<style>
-    .cursor {
-      display: inline-block;
-      font-weight: bold;
-      color: #333;
-      animation: blink 0.7s steps(2, start) infinite;
-    }
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 style="color: white;">
+        Nice to meet you! <br>I'm <b style="color: #34B7A7;">Qian Wen.</b>
+      </h2>
+      <p style="color: white;">
+        I'm <span id="typed-text" style="color: #34B7A7;"></span><span class="cursor">|</span>
+      </p>
+    </div>
+  </div>
+</div>
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-  </style>
-            <script>
+<style>
+  .cursor {
+    display: inline-block;
+    font-weight: bold;
+    color: #34B7A7;
+    animation: blink 0.7s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
   const titles = ["data analyst.", "researcher.", "AI advocate.", "psychologist."];
   let i = 0;
   let j = 0;
   let currentTitle = "";
   let isDeleting = false;
-  const speed = 100; // typing speed
-  const delay = 1000; // delay at end of word
+  const speed = 100;
+  const delay = 1000;
 
-  function typeEffect() {
+  function type() {
     const typedText = document.getElementById("typed-text");
 
-    if (!isDeleting && j <= titles[i].length) {
-      currentTitle = titles[i].substring(0, j++);
-      typedText.innerHTML = currentTitle;
-      setTimeout(typeEffect, speed);
-    } else if (isDeleting && j >= 0) {
+    if (!typedText) return;
+
+    if (isDeleting) {
       currentTitle = titles[i].substring(0, j--);
-      typedText.innerHTML = currentTitle;
-      setTimeout(typeEffect, speed / 2);
     } else {
-      isDeleting = !isDeleting;
-      if (!isDeleting) {
-        i = (i + 1) % titles.length;
-      }
-      setTimeout(typeEffect, delay);
+      currentTitle = titles[i].substring(0, j++);
+    }
+
+    typedText.innerHTML = currentTitle;
+
+    if (!isDeleting && j === titles[i].length) {
+      isDeleting = true;
+      setTimeout(type, delay);
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % titles.length;
+      setTimeout(type, 200);
+    } else {
+      setTimeout(type, speed);
     }
   }
 
-  document.addEventListener("DOMContentLoaded", typeEffect);
+  document.addEventListener("DOMContentLoaded", () => {
+    type();
+  });
 </script>
             <a href="about.html" class="btn-get-started">About Me</a>
           </div>
