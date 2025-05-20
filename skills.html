@@ -92,92 +92,159 @@
       <div class="container">
 
         <div class="row gy-4">
-          
-      <!-- Skill Card -->
-      <div class="col-6 col-md-4 col-lg-2 text-center"  data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/python.png" alt="Python" class="img-fluid mb-2" style="height: 80px;">
+            <style>
+    .skill-card-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* Makes it a square */
+    }
+
+    .skill-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+      padding: 1rem;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-card img {
+      height: 48px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+    
+    <!-- Python -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/python.png" alt="Python">
           <p class="mb-0">Python</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/r-project.png" alt="R" class="img-fluid mb-2" style="height: 80px;">
+    <!-- R -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/r-project.png" alt="R">
           <p class="mb-0">R</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/000000/postgreesql.png" alt="PostgreSQL" class="img-fluid mb-2" style="height: 80px;">
+    <!-- PostgreSQL -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/000000/postgreesql.png" alt="PostgreSQL">
           <p class="mb-0">PostgreSQL</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center data-aos="fade-up" data-aos-delay="100"
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/fluency/80/000000/mysql-logo.png" alt="MySQL" class="img-fluid mb-2" style="height: 80px;">
+    <!-- MySQL -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/fluency/80/000000/mysql-logo.png" alt="MySQL">
           <p class="mb-0">MySQL</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/tableau-software.png" alt="Tableau" class="img-fluid mb-2" style="height: 80px;">
+    <!-- Tableau -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/tableau-software.png" alt="Tableau">
           <p class="mb-0">Tableau</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/power-bi.png" alt="Power BI" class="img-fluid mb-2" style="height: 80px;">
+    <!-- Power BI -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/power-bi.png" alt="Power BI">
           <p class="mb-0">Power BI</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/microsoft-excel-2019.png" alt="Excel" class="img-fluid mb-2" style="height: 80px;">
+    <!-- Excel -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/microsoft-excel-2019.png" alt="Excel">
           <p class="mb-0">Excel</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/adobe-illustrator.png" alt="Illustrator" class="img-fluid mb-2" style="height: 80px;">
+    <!-- Illustrator -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/adobe-illustrator.png" alt="Illustrator">
           <p class="mb-0">Illustrator</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/adobe-photoshop.png" alt="Photoshop" class="img-fluid mb-2" style="height: 80px;">
+    <!-- Photoshop -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/adobe-photoshop.png" alt="Photoshop">
           <p class="mb-0">Photoshop</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/ibm.png" alt="SPSS" class="img-fluid mb-2" style="height: 80px;">
+    <!-- SPSS -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/ibm.png" alt="SPSS">
           <p class="mb-0">SPSS</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://img.icons8.com/color/80/sas.png" alt="SAS" class="img-fluid mb-2" style="height: 80px;">
+    <!-- SAS -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://img.icons8.com/color/80/sas.png" alt="SAS">
           <p class="mb-0">SAS</p>
         </div>
       </div>
+    </div>
 
-      <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-card p-3 shadow-sm rounded">
-          <img src="https://via.placeholder.com/80?text=E" alt="E-Prime" class="img-fluid mb-2" style="height: 80px;">
+    <!-- E-Prime -->
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4">
+      <div class="skill-card-wrapper">
+        <div class="skill-card">
+          <img src="https://via.placeholder.com/80?text=E" alt="E-Prime">
           <p class="mb-0">E-Prime</p>
         </div>
       </div>
-
+    </div>
         </div>
 
       </div>
