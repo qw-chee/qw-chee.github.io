@@ -96,14 +96,14 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
           <img src="assets/img/airturb.jpg" class="img-fluid">
       
-          <h3>Description</h3>
+          <br><h3>Description</h3>
           <p>Air turbulence is the irregular and unpredictable movement of air that can cause sudden jolts or shakes during a flight. It occurs due unstable airflow around an aircraft. While usually not dangerous, turbulence can be uncomfortable for passengers and pose challenges for pilots.</p>
 
 <p>In recent years, incidents of air turbulence have been on the rise due to climate change, causing significant concern amongst airlines and passengers. Therefore, the aim of this project was to build a machine learning model to accurately predict air turbulence, specifically over U.S mainland from 2015-2024. Predicting turbulence is crucial for enhancing flight safety, reducing discomfort for passengers, and optimizing flight operations. By leveraging multiple data sources, including pilot reports, meteorological data, and aircraft specifications, this model aims to provide more accurate turbulence predictions, helping pilots and airlines make informed decisions.</p>
       
       <img src="assets/img/airturb1.png" class="img-fluid">
 
-      <h3>Data Sources</h3>
+      <br><h3>Data Sources</h3>
       <p>All data were extracted from official U.S. government agencies using Application Programming Interface (API):</p>
       <ul>
         <li>Pilot reports (PIREPs): <a href="https://mesonet.agron.iastate.edu/request/gis/pireps.php">Iowa State University Environmental Mesonet</a></li>
@@ -120,20 +120,20 @@
       <ul>
         <li><strong>Wind speed: </strong>Turbulence is worse with higher wind speeds</li>
         <img src="assets/img/airturb2.png" class="img-fluid">
-        <li><strong>Temperature: </strong>Turbulence is worse with higher wind temperatures</li>
+        <br><li><strong>Temperature: </strong>Turbulence is worse with higher wind temperatures</li>
         <img src="assets/img/airturb3.png" class="img-fluid">
-        <li><strong>Season: </strong>Turbulence is worst during winter and calmest during summer</li>
+        <br><li><strong>Season: </strong>Turbulence is worst during winter and calmest during summer</li>
         <img src="assets/img/airturb4.png" class="img-fluid">
-        <li><strong>Time of day: </strong>Turbulence is worst during the day and calmest during the night/sunrise</li>
+        <br><li><strong>Time of day: </strong>Turbulence is worst during the day and calmest during the night/sunrise</li>
         <img src="assets/img/airturb5.png" class="img-fluid">
-        <li><strong>Ground elevation: </strong>Turbulence is worse when the ground is elevated</li>
+        <br><li><strong>Ground elevation: </strong>Turbulence is worse when the ground is elevated</li>
         <img src="assets/img/airturb6.png" class="img-fluid">
-        <li><strong>Flight level: </strong>Turbulence is calmest at cruising altitude (30,000-40,000 ft)</li>
+        <br><li><strong>Flight level: </strong>Turbulence is calmest at cruising altitude (30,000-40,000 ft)</li>
         <li><strong>Weight class: </strong>Turbulence is worse for smaller aircrafts</li>
       </ul>
         <p>The following density heatmap shows the severity of turbulence across U.S. mainland.</p>
       <img src="assets/img/airturb7.png" class="img-fluid">
-      <ol>
+      <br><ol>
         <li>Evidently, areas near high altitudes (around the mountains) typically experience greater turbulence. The main reason is that the air is forced up and down as it passes through mountains, and this generates a wide range of turbulent structures that can shake the plane. This turbulence can propagate far from the mountains, sometimes in the form of rolling trains of vortices known as mountain waves. At cruising altitudes the wind in the U.S. is from west to east, therefore, most of the turbulence is located at the eastern side of the mountains.</li>
         <li>In contrast, the Great Plains and Great Lakes states (North Dakota, South Dakota, Minnesota, Iowa, Wisconsin) present the lowest levels of turbulence in the U.S., with the flat terrain being an important factor. The plains are also sheltered from the Pacific and Atlantic winds by the Rockies and Appalachians. These two factors bring a peaceful patch of air with very low turbulence levels.</li>
         <li>Lastly, turbulence levels around the south (Texas, Louisiana, Mississippi) are also large due to the Gulf of Mexico's warm waters, which enhance convection, moisture, and instability in the atmosphere. Land-sea breezes, warm eddies from the Loop Current, and river plume interactions further contribute to vertical air movement and turbulent weather. Additionally, the region is frequently impacted by tropical systems that intensify atmospheric disturbances.</li>
@@ -146,7 +146,7 @@
 
 <p>The following table summarizes the performance of the models:</p>
 <img src="assets/img/airturb8.png" class="img-fluid">
-      <p>By evaluating the trade-offs between train and test accuracy, model discrepancies, and runtime, <strong>XGBoost</strong> was been identified as the best model for demonstrating superior performance with no significant overfitting.</p>
+      <br><p>By evaluating the trade-offs between train and test accuracy, model discrepancies, and runtime, <strong>XGBoost</strong> was been identified as the best model for demonstrating superior performance with no significant overfitting.</p>
 
       <h3>Conclusion</h3>
 
@@ -154,7 +154,7 @@
 
 <p>However, it is recommended that this analysis be repeated with real-time data from plane sensors to enhance its accuracy. Ground-based meteorological data may not be reflective of atmospheric conditions at various altitudes, and plane sensors also provide additional information on weather conditions in the air (e.g., wind shear, vertical wind gust, etc.). Ultimately, it is recommended that airlines integrate machine learning models into flight plans and pilot dashboards to help predict turbulence in real-time, in order to achieve smoother and safer flights for all.</p>
 
-      <h6><a href="https://github.com/qw-chee/air_turbulence">Visit the project's Github repository here</a></h6>
+      <br><h5><a href="https://github.com/qw-chee/air_turbulence">Visit the project's GitHub repository here</a></h5>
       
     </div>    
     
