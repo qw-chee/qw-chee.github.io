@@ -114,6 +114,50 @@
 
       <h3>Data Dictionary</h3>
       <p>The following table details the data and their respective sources:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Source</th>
+      <th>Feature</th>
+      <th>Column Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="15">Pilot Reports (PIREPs)</td><td>Date and time</td><td>DATETIME</td><td>Local date and time of report</td><td>Datetime</td></tr>
+    <tr><td>Time of day</td><td>TIME_OF_DAY</td><td>When: Day, night, sunrise, or sunset</td><td>String</td></tr>
+    <tr><td>Year</td><td>YEAR</td><td>Year of report</td><td>Integer</td></tr>
+    <tr><td>Hour</td><td>HOUR</td><td>Hour of report</td><td>Integer</td></tr>
+    <tr><td>Month</td><td>MONTH</td><td>Month of report</td><td>Integer</td></tr>
+    <tr><td>Season</td><td>SEASON</td><td>When: Spring, summer, autumn, winter</td><td>String</td></tr>
+    <tr><td>Flight level</td><td>FL</td><td>Flight level of incident (ft)</td><td>Integer</td></tr>
+    <tr><td>Distance</td><td>DISTANCE_TO_GROUND</td><td>Distance to ground (ft)</td><td>Integer</td></tr>
+    <tr><td>Aircraft</td><td>AC</td><td>Aircraft type designator</td><td>String</td></tr>
+    <tr><td>Turbulence</td><td>TURB_CAT</td><td>Category of turbulence</td><td>String</td></tr>
+    <tr><td>Severity</td><td>TURB_DEG</td><td>Severity of turbulence</td><td>Integer</td></tr>
+    <tr><td>Longitude</td><td>LON</td><td>Longitude of report</td><td>Integer</td></tr>
+    <tr><td>Latitude</td><td>LAT</td><td>Latitude of report</td><td>Integer</td></tr>
+    <tr><td>State</td><td>STATE</td><td>State of location</td><td>String</td></tr>
+    <tr><td>Urgent</td><td>URGENT</td><td>Whether the report was filed as urgent</td><td>Boolean</td></tr>
+
+    <tr><td>Elevation (USGS)</td><td>Elevation</td><td>ELEV</td><td>Ground elevation at location (ft)</td><td>Integer</td></tr>
+
+    <tr><td rowspan="6">Aircraft Specs (ICAO)</td><td>Manufacturer</td><td>MANUFACTURER</td><td>Manufacturer of plane</td><td>String</td></tr>
+    <tr><td>Model</td><td>MODEL</td><td>Model of plane</td><td>String</td></tr>
+    <tr><td>Description</td><td>DESCRIPTION</td><td>Type of plane</td><td>String</td></tr>
+    <tr><td>Engine type</td><td>ENGINE_TYPE</td><td>Type of engine</td><td>String</td></tr>
+    <tr><td>Engine count</td><td>ENGINE_COUNT</td><td>Number of engines</td><td>Integer</td></tr>
+    <tr><td>Weight class</td><td>WTC</td><td>Weight class of plane</td><td>String</td></tr>
+
+    <tr><td rowspan="6">Meteorological data (NWS)</td><td>Wind speed</td><td>WIND</td><td>Daily average wind speed at location</td><td>Integer</td></tr>
+    <tr><td>Wind direction</td><td>WIND_DRCT</td><td>Daily average wind direction at location</td><td>Integer</td></tr>
+    <tr><td>Cardinal wind</td><td>WIND_DIR</td><td>Daily average cardinal wind direction</td><td>String</td></tr>
+    <tr><td>Max temp</td><td>MAX_TEMP</td><td>Daily maximum temperature at location</td><td>Integer</td></tr>
+    <tr><td>Min temp</td><td>MIN_TEMP</td><td>Daily minimum temperature at location</td><td>Integer</td></tr>
+    <tr><td>Humidity</td><td>HUM</td><td>Daily relative humidity at location</td><td>Integer</td></tr>
+  </tbody>
+</table>
 
       <h3>Exploratory Data Analyses</h3>
       <p>Exploratory Data Analyses (EDA) revealed that these were the key predictors of air turbulence:</p>
@@ -121,7 +165,7 @@
   <li><strong>Wind speed: </strong>Turbulence tends to increase with stronger wind speeds because fast-moving air currents cause more instability in the atmosphere, leading to greater disruption in an aircraft's flight path.</li>
   <img src="assets/img/airturb2.png" class="img-fluid mb-4">
 
-  <li><strong>Temperature: </strong>Higher air temperatures, particularly at altitude, can intensify turbulence as they contribute to stronger vertical air movements (convection), which disrupt the smooth flow of air around the aircraft.</li>
+  <li><strong>Temperature: </strong>Higher air temperatures can intensify turbulence as they contribute to stronger vertical air movements (convection), which disrupt the smooth flow of air around the aircraft.</li>
   <img src="assets/img/airturb3.png" class="img-fluid mb-4">
 
   <li><strong>Season: </strong>Turbulence is most severe during the winter months due to the presence of stronger jet streams and greater temperature contrasts in the atmosphere, whereas summer months tend to be calmer with more stable atmospheric conditions.</li>
