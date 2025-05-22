@@ -101,7 +101,7 @@
 
 <p>In recent years, incidents of air turbulence have been on the rise due to climate change, causing significant concern amongst airlines and passengers. Therefore, the aim of this project was to build a machine learning model to accurately predict air turbulence, specifically over U.S mainland from 2015-2024. Predicting turbulence is crucial for enhancing flight safety, reducing discomfort for passengers, and optimizing flight operations. By leveraging multiple data sources, including pilot reports, meteorological data, and aircraft specifications, this model aims to provide more accurate turbulence predictions, helping pilots and airlines make informed decisions.</p>
       
-      <img src="assets/img/airturb1.png" class="img-fluid">
+      <img src="assets/img/airturb1.png" class="img-fluid mb-4">
 <br>
       <br><h3>Data Sources</h3>
       <p>All data were extracted from official U.S. government agencies using Application Programming Interface (API):</p>
@@ -111,7 +111,7 @@
         <li>Elevation data: <a href="https://apps.nationalmap.gov/epqs/">U.S. Geological Survey (USGS)</a></li>
         <li>Aircraft specifications: <a href="https://www.icao.int/publications/DOC8643/Pages/Search.aspx">International Civil Aviation Organization (ICAO)</a></li>
       </ul>
-
+<br>
       <h3>Data Dictionary</h3>
       <p>The following table details the data and their respective sources:</p>
 <table>
@@ -183,14 +183,13 @@
   <li><strong>Weight class: </strong>Smaller aircraft are more susceptible to turbulence effects because they have less mass to resist air disturbances, meaning they experience greater vertical and lateral displacement compared to larger, heavier aircraft.</li>
 </ul>
         <p>The following density heatmap shows the severity of turbulence across U.S. mainland.</p>
-      <img src="assets/img/airturb7.png" class="img-fluid">
-      <br>
+      <img src="assets/img/airturb7.png" class="img-fluid mb-4">
       <br><ol>
         <li>Evidently, areas near high altitudes (around the mountains) typically experience greater turbulence. The main reason is that the air is forced up and down as it passes through mountains, and this generates a wide range of turbulent structures that can shake the plane. This turbulence can propagate far from the mountains, sometimes in the form of rolling trains of vortices known as mountain waves. At cruising altitudes the wind in the U.S. is from west to east, therefore, most of the turbulence is located at the eastern side of the mountains.</li>
         <li>In contrast, the Great Plains and Great Lakes states (North Dakota, South Dakota, Minnesota, Iowa, Wisconsin) present the lowest levels of turbulence in the U.S., with the flat terrain being an important factor. The plains are also sheltered from the Pacific and Atlantic winds by the Rockies and Appalachians. These two factors bring a peaceful patch of air with very low turbulence levels.</li>
         <li>Lastly, turbulence levels around the south (Texas, Louisiana, Mississippi) are also large due to the Gulf of Mexico's warm waters, which enhance convection, moisture, and instability in the atmosphere. Land-sea breezes, warm eddies from the Loop Current, and river plume interactions further contribute to vertical air movement and turbulent weather. Additionally, the region is frequently impacted by tropical systems that intensify atmospheric disturbances.</li>
       </ol>
-
+<br>
       <h3>Results</h3>
       <p>Four classifiers were built: Random Forest, Decision Tree, XGBoost, and CatBoost</p>
 
@@ -200,7 +199,7 @@
 <img src="assets/img/airturb8.png" class="img-fluid">
       <br>
       <br><p>By evaluating the trade-offs between train and test accuracy, model discrepancies, and runtime, <strong>XGBoost</strong> was been identified as the best model for demonstrating superior performance with no significant overfitting.</p>
-
+<br>
       <h3>Conclusion</h3>
 
       <p>This analysis is proof of concept that turbulence severity can be predicted relatively accurately using machine learning models. By utilizing a mega dataset of historical turbulence (over 1.5 million observations), the model uniquely predicts turbulence using ground-based meteorological data instead of data from plane sensors, and without traditional turbulence metrics commonly studied in the literature.</p>
