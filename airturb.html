@@ -96,14 +96,14 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
           <img src="assets/img/airturb.jpg" class="img-fluid">
       
-          <h3>Description</h4>
+          <h3>Description</h3>
           <p>Air turbulence is the irregular and unpredictable movement of air that can cause sudden jolts or shakes during a flight. It occurs due unstable airflow around an aircraft. While usually not dangerous, turbulence can be uncomfortable for passengers and pose challenges for pilots.</p>
 
 <p>In recent years, incidents of air turbulence have been on the rise due to climate change, causing significant concern amongst airlines and passengers. Therefore, the aim of this project was to build a machine learning model to accurately predict air turbulence, specifically over U.S mainland from 2015-2024. Predicting turbulence is crucial for enhancing flight safety, reducing discomfort for passengers, and optimizing flight operations. By leveraging multiple data sources, including pilot reports, meteorological data, and aircraft specifications, this model aims to provide more accurate turbulence predictions, helping pilots and airlines make informed decisions.</p>
       
       <img src="assets/img/airturb1.png" class="img-fluid">
 
-      <h3>Data Sources</h4>
+      <h3>Data Sources</h3>
       <p>All data were extracted from official U.S. government agencies using Application Programming Interface (API):</p>
       <ul>
         <li>Pilot reports (PIREPs): <a href="https://mesonet.agron.iastate.edu/request/gis/pireps.php">Iowa State University Environmental Mesonet</a></li>
@@ -112,37 +112,43 @@
         <li>Aircraft specifications: <a href="https://www.icao.int/publications/DOC8643/Pages/Search.aspx">International Civil Aviation Organization (ICAO)</a></li>
       </ul>
 
-      <h3>Data Dictionary</h4>
+      <h3>Data Dictionary</h3>
       <p>The following table details the data and their respective sources:</p>
 
-      <h3>Exploratory Data Analyses</h4>
+      <h3>Exploratory Data Analyses</h3>
       <p>Exploratory Data Analyses (EDA) revealed that these were the key predictors of air turbulence:</p>
       <ul>
         <li><strong>Wind speed: </strong>Turbulence is worse with higher wind speeds</li>
+        <img src="assets/img/airturb2.png" class="img-fluid">
         <li><strong>Temperature: </strong>Turbulence is worse with higher wind temperatures</li>
+        <img src="assets/img/airturb3.png" class="img-fluid">
         <li><strong>Season: </strong>Turbulence is worst during winter and calmest during summer</li>
+        <img src="assets/img/airturb4.png" class="img-fluid">
         <li><strong>Time of day: </strong>Turbulence is worst during the day and calmest during the night/sunrise</li>
+        <img src="assets/img/airturb5.png" class="img-fluid">
         <li><strong>Ground elevation: </strong>Turbulence is worse when the ground is elevated</li>
+        <img src="assets/img/airturb6.png" class="img-fluid">
         <li><strong>Flight level: </strong>Turbulence is calmest at cruising altitude (30,000-40,000 ft)</li>
         <li><strong>Weight class: </strong>Turbulence is worse for smaller aircrafts</li>
       </ul>
         <p>The following density heatmap shows the severity of turbulence across U.S. mainland.</p>
+      <img src="assets/img/airturb7.png" class="img-fluid">
       <ol>
         <li>Evidently, areas near high altitudes (around the mountains) typically experience greater turbulence. The main reason is that the air is forced up and down as it passes through mountains, and this generates a wide range of turbulent structures that can shake the plane. This turbulence can propagate far from the mountains, sometimes in the form of rolling trains of vortices known as mountain waves. At cruising altitudes the wind in the U.S. is from west to east, therefore, most of the turbulence is located at the eastern side of the mountains.</li>
         <li>In contrast, the Great Plains and Great Lakes states (North Dakota, South Dakota, Minnesota, Iowa, Wisconsin) present the lowest levels of turbulence in the U.S., with the flat terrain being an important factor. The plains are also sheltered from the Pacific and Atlantic winds by the Rockies and Appalachians. These two factors bring a peaceful patch of air with very low turbulence levels.</li>
         <li>Lastly, turbulence levels around the south (Texas, Louisiana, Mississippi) are also large due to the Gulf of Mexico's warm waters, which enhance convection, moisture, and instability in the atmosphere. Land-sea breezes, warm eddies from the Loop Current, and river plume interactions further contribute to vertical air movement and turbulent weather. Additionally, the region is frequently impacted by tropical systems that intensify atmospheric disturbances.</li>
       </ol>
 
-      <h3>Results</h4>
+      <h3>Results</h3>
       <p>Four classifiers were built: Random Forest, Decision Tree, XGBoost, and CatBoost</p>
 
 <p>The aim of these ML models was to learn from the dataset and to predict and classify the severity of turbulence into 3 categories: Light, Moderate, or Severe.</p>
 
 <p>The following table summarizes the performance of the models:</p>
-
+<img src="assets/img/airturb8.png" class="img-fluid">
       <p>By evaluating the trade-offs between train and test accuracy, model discrepancies, and runtime, <strong>XGBoost</strong> was been identified as the best model for demonstrating superior performance with no significant overfitting.</p>
 
-      <h3>Conclusion</h4>
+      <h3>Conclusion</h3>
 
       <p>This analysis is proof of concept that turbulence severity can be predicted relatively accurately using machine learning models. By utilizing a mega dataset of historical turbulence (over 1.5 million observations), the model uniquely predicts turbulence using ground-based meteorological data instead of data from plane sensors, and without traditional turbulence metrics commonly studied in the literature.</p>
 
