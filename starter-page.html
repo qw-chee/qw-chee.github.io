@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Qian Wen Chee's Portfolio</title>
+  <title>Qian Wen Chee - Home</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -27,9 +28,16 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- =======================================================
+  * Template Name: Kelly
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body class="starter-page-page">
+<body class="index-page">
 
   <header id="header" class="header d-flex align-items-center light-background sticky-top">
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
@@ -43,19 +51,20 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">About Me</a></li>
           <li><a href="resume.html">Resume</a></li>
-          <li class="dropdown"><a href="#"><span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="skills.html">Skills</a></li>
+          <li class="dropdown"><a href="projects.html"><span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Predicting Air Turbulence</a></li>
-              <li><a href="#">Singapore HDB Resale Prices</a></li>
-              <li><a href="#">U.S. Presidential Elections</a></li>
-              <li><a href="#">U.K. Gender Gap Report</a></li>
-              <li><a href="#">The AELP</a></li>
-              <li><a href="#">LexiCAL</a></li>
+              <li><a href="airturb.html">Predicting Air Turbulence</a></li>
+              <li><a href="hdbresale.html">Singapore HDB Resale Prices</a></li>
+              <li><a href="uselections.html">U.S. Presidential Elections</a></li>
+              <li><a href="ukgpg.html">U.K. Gender Gap Report</a></li>
+              <li><a href="aelp.html">The AELP</a></li>
+              <li><a href="lexical.html">LexiCAL</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="publications.html">Publications</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -71,20 +80,73 @@
 
   <main class="main">
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      <img src="assets/img/hero-bg.jpeg" alt="" data-aos="fade-in">
 
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
+      <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2><h2 style="color: white;">Nice to meet you! <br>I'm <b><b style="color: #34B7A7;">Qian Wen.</b></h2>
+            <p><p style="color: white;">I'm a <b><span id="typed-text" style="color: #34B7A7;"></span><span class="cursor">|</span></b></p>
+<style>
+    .cursor {
+      display: inline-block;
+      font-weight: bold;
+      color: #333;
+      animation: blink 0.7s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+            <script>
+  const titles = ["data analyst.", "researcher.", "AI advocate.", "psychologist.","graphic designer."];
+  let i = 0;
+  let j = 0;
+  let currentTitle = "";
+  let isDeleting = false;
+  const speed = 100; // typing speed
+  const delay = 1000; // delay at end of word
+
+  function type() {
+    const typedText = document.getElementById("typed-text");
+
+    if (!typedText) return;
+
+    if (isDeleting) {
+      currentTitle = titles[i].substring(0, j--);
+    } else {
+      currentTitle = titles[i].substring(0, j++);
+    }
+
+    typedText.innerHTML = currentTitle;
+
+    if (!isDeleting && j === titles[i].length) {
+      isDeleting = true;
+      setTimeout(type, delay);
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % titles.length;
+      setTimeout(type, 200);
+    } else {
+      setTimeout(type, speed);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    type();
+  });
+</script></b>
+            <a href="about.html" class="btn-get-started">About Me</a>
+          </div>
+        </div>
       </div>
 
-    </section><!-- /Starter Section Section -->
+    </section><!-- /Hero Section -->
 
   </main>
 
@@ -92,14 +154,11 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Qian Wen Chee.</strong> <span>All Rights Reserved.<br></span></p>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+        <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Qian Wen Chee.</strong> <span>All Rights Reserved.<br></span></p>
+              </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/cheeqw/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/qw-chee" class="github"><i class="bi bi-github"></i></a>
       </div>
     </div>
 
