@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Qian Wen Chee - Predicting Singapore HDB Resale Prices with Machine Learning</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts --> 
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kelly
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Qian Wen Chee</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li class="dropdown"><a href="projects.html"><span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="airturb.html">Predicting Air Turbulence</a></li>
+              <li><a href="hdbresale.html">Singapore HDB Resale Prices</a></li>
+              <li><a href="uselections.html">U.S. Presidential Elections</a></li>
+              <li><a href="ukgpg.html">U.K. Gender Gap Report</a></li>
+              <li><a href="aelp.html">The AELP</a></li>
+              <li><a href="lexical.html">LexiCAL</a></li>
+            </ul>
+          </li>
+          <li><a href="publications.html">Publications</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://www.linkedin.com/in/cheeqw/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/qw-chee" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.researchgate.net/profile/Qian-Wen-Chee" class="researchgate"><i class="bi bi-researchgate"></i></a>
+      </div>
+
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Skills Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Predicting HDB Resale Prices with Machine Learning</h2>
+        <p>This project uses Python to analyse the key predictors of Singapore's HDB resale prices and build several machine learning models to predict prices based on features identified.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/hdbresale.jpg" class="img-fluid">
+      <br>
+          <br><h3>Description</h3>
+          <p>The HDB resale market in Singapore has become increasingly dynamic, with shifting buyer preferences, evolving government regulations, and fluctuating property prices. As competition grows, homebuyers are no longer making decisions based purely on proximity to amenities. Instead, factors such as flat size, remaining lease, accessibility to key business districts, and regional demand trends are playing a crucial role in determining resale value.</p>
+
+<p>To stay ahead in this evolving landscape, real estate agents need data-driven insights to accurately assess and forecast HDB resale prices. By leveraging predictive modelling, the aim of this project was to identify the key predictors of HDB resale prices, to help buyers and sellers make well-informed decisions.</p>
+      
+      <h3>Data Dictionary</h3>
+      <p>The following table details the data and their descriptions:</p>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Description</th>
+      <th>Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>id</td><td>identification no. of transaction</td><td>Integer</td></tr>
+    <tr><td>resale_price</td><td>the property's sale price in Singapore dollars</td><td>Integer</td></tr>
+    <tr><td>town</td><td>HDB township where the flat is located</td><td>Integer</td></tr>
+    <tr><td>flat_type</td><td>type of the resale flat unit</td><td>String</td></tr>
+    <tr><td>mid_storey</td><td>median value of storey_range</td><td>Integer</td></tr>
+    <tr><td>floor_area_sqft</td><td>floor area of the resale flat unit in square feet</td><td>Float</td></tr>
+    <tr><td>max_floor_lvl</td><td>highest floor of the resale flat</td><td>Integer</td></tr>
+    <tr><td>Mall_Nearest_Distance</td><td>distance (in metres) to the nearest mall</td><td>Float</td></tr>
+    <tr><td>Hawker_Nearest_Distance</td><td>distance (in metres) to the nearest hawker centre</td><td>Float</td></tr>
+    <tr><td>mrt_nearest_distance</td><td>distance (in metres) to the nearest MRT station</td><td>Float</td></tr>
+    <tr><td>bus_stop_nearest_distance</td><td>distance (in metres) to the nearest bus stop</td><td>Float</td></tr>
+    <tr><td>pri_sch_nearest_distance</td><td>distance (in metres) to the nearest primary school</td><td>Float</td></tr>
+    <tr><td>sec_sch_nearest_dist</td><td>distance (in metres) to the nearest secondary school</td><td>Float</td></tr>
+    <tr><td>cbd_distance</td><td>distance to Downtown Core (1.2867° N, 103.8535° E) by each transaction co-ordinates in kilometers</td><td>Float</td></tr>
+    <tr><td>cpi</td><td>consumer price index</td><td>Float</td></tr>
+    <tr><td>remaining_lease</td><td>number of years left before the lease expires</td><td>Integer</td></tr>
+    <tr><td>amenities_within_1km</td><td>total number of malls and hawkers within 1 kilometre</td><td>Integer</td></tr>
+    <tr><td>region</td><td>classification of HDB towns into regions (C, E, N, NE, W region)</td><td>String</td></tr>
+    <tr><td>sora_3mth</td><td>3 month average bank interest rates data from Sora</td><td>Float</td></tr>
+  </tbody>
+  </table>
+
+    <h3>Exploratory Data Analyses</h3>
+  <p>Based on the analyses, the 18 features that predict HDB resale prices are listed below in descending order:</p>
+    <ol>
+      <li>Flat type 4-room</li>
+      <li>Floor area (sqft)</li>
+      <li>Distance to CBD</li>
+      <li>Region - East</li>
+      <li>Region - Northeast</li>
+      <li>Remaining lease</li>
+      <li>Max floor level</li>
+      <li>Distance to nearest MRT station</li>
+      <li>Region - West</li>
+      <li>Mid storey</li>
+      <li>SORA - 3 month average</li>
+      <li>Distance to nearest mall</li>
+      <li>Number of amenities within 1km</li>
+      <li>Distance to nearest hawker</li>
+      <li>Distance to nearst secondary school</li>
+      <li>Consumer Price Index (CPI)</li>
+      <li>Distance to nearest primary school</li>
+      <li>Distance to nearest busstop</li>
+    </ol>
+<br>
+      <h3>Machine Learning Models</h3>
+      <p>Four machine learning models were built: Linear Regression, Decision Tree, XGBoost, and CatBoost</p>
+
+<p>The aim of these ML models was to learn from the dataset to predict HDB resale prices.</p>
+
+<p>The following table summarizes the performance of the models:</p>
+  <table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>Model</th>
+      <th>Train Accuracy</th>
+      <th>Test Accuracy</th>
+      <th>Train-test Difference</th>
+      <th>Runtime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Linear Regression</td><td>81.02%</td><td>81.29%</td><td>0.27%</td><td>0.07s</td></tr>
+    <tr><td>Decision Tree</td><td>99.99%</td><td>92.71%</td><td>7.28%</td><td>1.97s</td></tr>
+    <tr><td>XGBoost</td><td>98.09%</td><td>96.81%</td><td>1.28%</td><td>1.71s</td></tr>
+    <tr><td>CatBoost</td><td>96.98%</td><td>96.51%</td><td>0.47%</td><td>13.00s</td></tr>
+  </tbody>
+  </table>
+
+      <br>
+      <br><p>By evaluating the trade-offs between train and test accuracy, model discrepancies, and runtime, <strong>XGBoost</strong> was been identified as the best model for demonstrating superior performance with no significant overfitting.</p>
+<br>
+      <h3>Conclusion</h3>
+
+      <p>This project demonstrates that key factors such as lease remaining, proximity to MRT stations, and flat types are strong predictors of HDB resale prices. Price trends consistently show higher values for units located near the CBD and MRT access points, while government regulations and market events—such as cooling measures and the COVID-19 pandemic—have notable impacts on demand and pricing.</p>
+
+<p>The predictive model developed offers practical value for real estate agents and buyers, enabling more informed decision-making based on data-driven insights. Future enhancements, such as integrating sentiment analysis from public forums or news sources, could further refine price forecasts and reflect market sentiment more accurately.</p>
+
+      <br><h5><a href="https://github.com/qw-chee/hdb-resale-2025">Visit the project's GitHub repository here</a></h5>
+      
+    </div>    
+    
+    </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Qian Wen Chee.</strong> <span>All Rights Reserved.<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/cheeqw/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/qw-chee" class="github"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
