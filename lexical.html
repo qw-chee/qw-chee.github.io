@@ -95,7 +95,7 @@
         <div class="row gy-4">
           
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <img src="assets/img/lexical.png" class="img-fluid">
+          <img src="assets/img/lexical.tif" class="img-fluid">
       <br>
           <br><h3>Description</h3>
           <p>In psycholinguistic research, large databases of words, such as the English Lexicon Project, the CELEX lexical database, and the MRC psycholinguistic database, have been essential resources for researchers who require data for a multitude of lexical characteristics. These databases typically consist of a comprehensive set of words and their corresponding lexical properties (e.g., word length, number of syllables, pronunciation, etc.), which allow researchers to generate stimuli selection for experimental design (e.g., selecting words that vary on some dimension while matched on others).</p>
@@ -108,7 +108,7 @@
 <br>
       <br><h3>User Interface</h3>
       The image below shows the main window of the application.
-      <img src="assets/img/lexical.png" class="img-fluid mb-4">
+      <img src="assets/img/lexical.tif" class="img-fluid mb-4">
 
       <p>LexiCAL is available only for the 64-bit version of the Windows operating system, and is not compatible with the 32-bit version of Windows, nor the macOS or Linux operating systems. The program is a standalone executable (LexiCAL.exe) that does not require any installation to launch.</p>
       
@@ -120,12 +120,13 @@
   <table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
+      <th>Category</th>
       <th>Type of Metric</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td colspan="2"><strong>Surface</strong></td></tr>
+    <tr><td rowspan="2">Surface</td></tr>
     <tr>
       <td>Stress code</td>
       <td>Returns the stress pattern of the target word, based on which syllable the primary stress falls on.</td>
@@ -135,7 +136,7 @@
       <td>Returns the proportion of words in the corpus that share the same primary stress assignment as the target word, amongst all the words that have the same number of syllables as the target word (Arciuli & Cupples, 2006).</td>
     </tr>
 
-    <tr><td colspan="2"><strong>Orthographic</strong></td></tr>
+    <tr><td rowspan="2">Orthographic</td></tr>
     <tr>
       <td>Length (No. of letters)</td>
       <td>Returns the number of letters in the target word.</td>
@@ -169,7 +170,7 @@
       <td>Returns the sum of the log-transformed frequencies of bigrams in the target word. The calculation of each bigram frequency takes into account the letter positions where the bigram occurs, so each bigram frequency is position-specific.</td>
     </tr>
 
-    <tr><td colspan="2"><strong>Phonological</strong></td></tr>
+    <tr><td rowspan="2">Phonological</td></tr>
     <tr>
       <td>No. of phonemes</td>
       <td>Returns the number of phonemes in the target word.</td>
@@ -207,7 +208,7 @@
       <td>Returns the sum of the log-transformed frequencies of biphones in the target word. The calculation of each biphone frequency takes into account the phoneme positions where the biphone occurs, so each biphone frequency is position-specific (Vitevitch & Luce, 2004).</td>
     </tr>
 
-    <tr><td colspan="2"><strong>Phonographic</strong></td></tr>
+    <tr><td rowspan="2">Phonographic</td></tr>
     <tr>
       <td>Neighbourhood density</td>
       <td>Returns the number and the identity of phonographic neighbours the target word has in the corpus, based on single letter and phoneme substitution (‘substitutions only’ option), or single letter and phoneme substitution, addition, or deletion (‘substitutions, additions, and deletions’ option) (Peereman & Content, 1997).</td>
