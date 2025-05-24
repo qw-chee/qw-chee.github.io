@@ -144,7 +144,40 @@
     <tr><td>Heaven Hill Distilleries Inc.</td><td>388</td></tr>
   </tbody>
   </table>
+      <br>
+      <br><h6>3. Which products sell the best by total number of unit sales? </h6>
+      <pre><code class="language-sql">
+        SELECT p.item_no, p.item_description, SUM(s.bottle_qty)
+        FROM products p
+        JOIN sales s
+        ON
+          p.item_no
+          =
+          s.item
+        GROUP BY 1,2
+        ORDER BY 3 DESC
+        LIMIT 5;
+      </code></pre>
+      <strong>Answer:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>Item No.</th>
+      <th>Item Description</th>
+      <th>Qty Sold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>11788</td><td>Black Velvet</td><td>828393</td></tr>
+    <tr><td>36308</td><td>Hawkeye Vodka</td><td>500070</td></tr>
+    <tr><td>43337</td><td>Captain Morgan Spiced Rum</td><td>483621</td></tr>
+    <tr><td>36904</td><td>Mccormick Vodka Pet</td><td>393203</td></tr>
+    <tr><td>35317</td><td>Barton Vodka</td><td>288425</td></tr>
+  </tbody>
+  </table>
 
+        
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
         
