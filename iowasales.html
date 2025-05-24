@@ -144,7 +144,6 @@
     <tr><td>Heaven Hill Distilleries Inc.</td><td>388</td></tr>
   </tbody>
   </table>
-      <br>
       <br><h6>3. Which products sell the best by total number of unit sales? </h6>
       <pre><code class="language-sql">
         SELECT p.item_no, p.item_description, SUM(s.bottle_qty)
@@ -176,8 +175,214 @@
     <tr><td>35317</td><td>Barton Vodka</td><td>288425</td></tr>
   </tbody>
   </table>
-
-        
+      <br><h6>4. Which products sell the best by total dollar value of sales? </h6>
+      <pre><code class="language-sql">
+        SELECT p.item_no, p.item_description, SUM(s.total)
+        FROM products p
+        JOIN sales s
+        ON
+          p.item_no
+          =
+          s.item
+        GROUP BY 1,2
+        ORDER BY 3 DESC
+        LIMIT 5;
+      </code></pre>
+      <strong>Answer:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Item No.</th>
+      <th>Item Description</th>
+      <th>Total Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>11788</td>
+      <td>Black Velvet</td>
+      <td>$12,863,376.81</td>
+    </tr>
+    <tr>
+      <td>43337</td>
+      <td>Captain Morgan Spiced Rum</td>
+      <td>$8,523,370.55</td>
+    </tr>
+    <tr>
+      <td>26827</td>
+      <td>Jack Daniels Old #7 Black Lbl</td>
+      <td>$6,668,863.94</td>
+    </tr>
+    <tr>
+      <td>11297</td>
+      <td>Crown Royal Canadian Whisky</td>
+      <td>$6,231,299.41</td>
+    </tr>
+    <tr>
+      <td>36308</td>
+      <td>Hawkeye Vodka</td>
+      <td>$5,380,753.20</td>
+    </tr>
+  </tbody>
+  </table>
+        <br><h6>5. Which rum products have sales greater than $10,000? How about whiskey or vodka products?</h6>
+      <pre><code class="language-sql">
+        SELECT item, description, category_name, SUM(total)
+        FROM sales
+        WHERE category_name ILIKE '%rum%'
+        GROUP BY 1,2,3
+        Having SUM(total) > 10000
+        ORDER BY 4 DESC;
+      </code></pre>
+      <strong>Answer: 166 rum products</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+     <thead>
+    <tr>
+      <th>Item No.</th>
+      <th>Item Description</th>
+      <th>Category</th>
+      <th>Total Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>43337</td>
+      <td>Captain Morgan Spiced Rum</td>
+      <td>SPICED RUM</td>
+      <td>$8,523,370.55</td>
+    </tr>
+    <tr>
+      <td>43338</td>
+      <td>Captain Morgan Spiced Rum</td>
+      <td>SPICED RUM</td>
+      <td>$4,341,131.70</td>
+    </tr>
+    <tr>
+      <td>1799</td>
+      <td>Captain Morgan Spiced Barrel</td>
+      <td>SPICED RUM</td>
+      <td>$3,774,545.06</td>
+    </tr>
+    <tr>
+      <td>43336</td>
+      <td>Captain Morgan Original Spiced</td>
+      <td>SPICED RUM</td>
+      <td>$3,497,803.08</td>
+    </tr>
+    <tr>
+      <td>43028</td>
+      <td>Admiral Nelson Spiced Rum</td>
+      <td>SPICED RUM</td>
+      <td>$2,164,286.62</td>
+    </tr>
+  </tbody>
+  </table>
+  <br><h6>6. Which county sold the most amount of vodka during February 2014?</h6>
+      <pre><code class="language-sql">
+        SELECT county, SUM(bottle_qty)
+        FROM sales
+        WHERE category_name ILIKE '%vodka'
+          AND DATE_PART ('year', date) = 2014
+          AND DATE_PART ('month', date) = 2
+        GROUP BY 1
+        ORDER BY 2 DESC
+        LIMIT 1;
+      </code></pre>
+      <strong>Answer: Polk</strong>
+  <br>
+  <br><h6>7. Which counties were in the top 10 counties for vodka sales in any month in 2014?</h6>
+      <pre><code class="language-sql">
+        WITH monthly_rank AS (
+          SELECT
+            county,
+            DATE_PART ('month', date) AS month,
+            SUM(total) AS monthly_sales,
+            RANK () OVER (PARTITION BY DATE_PART ('month', date) ORDER BY SUM(total)DESC) AS monthly_rank_number
+          FROM sales
+          WHERE category_name ILIKE '%vodka' AND DATE_PART ('year', date) = 2014
+          GROUP BY 1,2
+        )
+        SELECT county, month, monthly_sales, monthly_rank_number
+        FROM monthly_rank
+        WHERE monthly_rank_number <= 10 AND month = 1
+        ORDER BY 4;
+      </code></pre>
+      <strong>Answer:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>County</th>
+      <th>Month</th>
+      <th>Vodka Sales</th>
+      <th>Monthly Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Polk</td>
+      <td>1</td>
+      <td>$2,188,692.56</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Linn</td>
+      <td>1</td>
+      <td>$975,547.22</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Scott</td>
+      <td>1</td>
+      <td>$764,583.12</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Johnson</td>
+      <td>1</td>
+      <td>$687,857.74</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Black Hawk</td>
+      <td>1</td>
+      <td>$611,497.16</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Pottawattamie</td>
+      <td>1</td>
+      <td>$425,965.76</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Story</td>
+      <td>1</td>
+      <td>$358,245.36</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>Dubuque</td>
+      <td>1</td>
+      <td>$348,632.82</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Woodbury</td>
+      <td>1</td>
+      <td>$289,273.18</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Cerro Gordo</td>
+      <td>1</td>
+      <td>$222,337.54</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+  </table>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
         
