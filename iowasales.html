@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Qian Wen Chee - Iowa Liquor Sales</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts --> 
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kelly
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Qian Wen Chee</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li class="dropdown"><a href="projects.html"><span>Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="airturb.html">Predicting Air Turbulence</a></li>
+              <li><a href="hdbresale.html">Singapore HDB Resale Prices</a></li>
+              <li><a href="uselections.html">U.S. Presidential Elections</a></li>
+              <li><a href="iowasales.html">Iowa Liquor Sales</a></li>
+              <li><a href="aelp.html">The AELP</a></li>
+              <li><a href="lexical.html">LexiCAL</a></li>
+            </ul>
+          </li>
+          <li><a href="publications.html">Publications</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://www.linkedin.com/in/cheeqw/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/qw-chee" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.researchgate.net/profile/Qian-Wen-Chee" class="researchgate"><i class="bi bi-researchgate"></i></a>
+      </div>
+
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Skills Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Iowa Liquor Sales</h2>
+        <p>This project uses PostgreSQL to analyse trends in the Iowa Liquor Sales database.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/iowa.jpg" class="img-fluid">
+      <br>
+          <br><h3>Description</h3>
+          <p>The Iowa liquor sales dataset contains the spirits purchase information of Iowa Class “E” liquor licensees by product and date of purchase from January 1, 2012 to current. The dataset can be used to analyze total spirits sales in Iowa of individual products at the store level.</p>
+
+<p>Class E liquor license, for grocery stores, liquor stores, convenience stores, etc., allows commercial establishments to sell liquor for off-premises consumption in original unopened containers.</p>
+
+      <p>This project uses PostgreSQL to analyse trends in the dataset, to facilitate understanding of liquor sales in Iowa.</p>
+
+      <br>
+
+      <h3>Data Source</h3>
+      <p>The Iowa liquor sales dataset is available here: <a href="https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data">https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy/about_data</a></p>
+
+      <br>
+      <h3>SQL Queries</h3>
+      <h6>How many products are there in the dataset?</h6>
+      <pre><code class="language-sql">
+        SELECT COUNT(item_no)
+        FROM products;
+      </code></pre>
+      <strong>Answer: 9977</strong>
+
+      <h6>2.	Who are the top most diverse vendors (i.e. they have the highest number of distinct products)? How many different products do they have?</h6>
+      <pre><code class="language-sql">
+        SELECT vendor_name, COUNT(DISTINCT item_no)
+        FROM products
+        GROUP BY 1
+        ORDER BY 2 DESC
+        LIMIT 5;
+      </code></pre>
+      <strong>Answer: 9977</strong>      
+
+      <br><h5><a href="https://inetapps.nus.edu.sg/aelp/">Explore the project's GitHub repository here</a></h5>
+      
+    </div>    
+    
+    </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Qian Wen Chee.</strong> <span>All Rights Reserved.<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/cheeqw/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/qw-chee" class="github"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
