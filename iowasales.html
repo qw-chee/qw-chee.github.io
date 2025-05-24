@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Qian Wen Chee - Iowa Liquor Sales</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -87,7 +88,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Iowa Liquor Sales</h2>
-        <p>This project uses PostgreSQL to analyse trends in the Iowa Liquor Sales database.</p>
+        <p>This project uses PostgreSQL to analyse trends in the Iowa liquor sales database.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -126,10 +127,30 @@
         ORDER BY 2 DESC
         LIMIT 5;
       </code></pre>
-      <strong>Answer: 9977</strong>      
+      <strong>Answer:</strong>
+      <table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>Vendor Name</th>
+      <th>No. of Products</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Jim Beam Brands</td><td>925</td></tr>
+    <tr><td>Diageo Americas</td><td>907</td></tr>
+    <tr><td>Pernod Ricard USA / Austin Nichols</td><td>599</td></tr>
+    <tr><td>Yahara Bay Distillers Inc.</td><td>579</td></tr>
+    <tr><td>Heaven Hill Distilleries Inc.</td><td>388</td></tr>
+  </tbody>
+  </table>
 
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
+        
       <br><h5><a href="https://inetapps.nus.edu.sg/aelp/">Explore the project's GitHub repository here</a></h5>
-      
+
+        
     </div>    
     
     </div>
