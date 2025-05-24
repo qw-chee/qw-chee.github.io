@@ -427,7 +427,7 @@
     <tr><td>Dickinson</td><td>1</td></tr>
   </tbody>
 </table>
-<br><h6>9. What were the top 10 month-on-month growth rate?</h6>
+<br><h6>9. Which stores had the top 10 month-on-month growth rate?</h6>
       <pre><code class="language-sql">
         WITH store_monthly_sales AS (
           SELECT
@@ -548,7 +548,7 @@
   </table>
   <br><h6>10. Sort the stores in latitude order from most northernly to most southernly.</h6>
       <pre><code class="language-sql">
-        SELECT store, name, split_part(split_part(store_address, '(',2), ',', 1) AS latitude
+        SELECT store, name, split_part(split_part(store_address, '(', 2), ',', 1) AS latitude
         FROM stores
         ORDER BY 3 DESC
         LIMIT 5;
