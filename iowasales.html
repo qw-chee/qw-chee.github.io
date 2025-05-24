@@ -117,7 +117,7 @@
         SELECT COUNT(item_no)
         FROM products;
       </code></pre>
-      <strong>Answer: 9977</strong>
+      <strong>Result: 9977</strong>
       <br>
       <br><h6>2. Who are the top most diverse vendors (i.e. they have the highest number of distinct products)? How many different products do they have?</h6>
       <pre><code class="language-sql">
@@ -127,7 +127,7 @@
         ORDER BY 2 DESC
         LIMIT 5;
       </code></pre>
-      <strong>Answer:</strong>
+      <strong>Result:</strong>
       <table>
   <table class="table table-bordered table-striped table-hover">
       <thead>
@@ -157,7 +157,7 @@
         ORDER BY 3 DESC
         LIMIT 5;
       </code></pre>
-      <strong>Answer:</strong>
+      <strong>Result:</strong>
 <table>
   <table class="table table-bordered table-striped table-hover">
       <thead>
@@ -188,7 +188,7 @@
         ORDER BY 3 DESC
         LIMIT 5;
       </code></pre>
-      <strong>Answer:</strong>
+      <strong>Result:</strong>
 <table>
   <table class="table table-bordered table-striped table-hover">
     <thead>
@@ -226,7 +226,7 @@
     </tr>
   </tbody>
   </table>
-        <br><h6>5. Which rum products have sales greater than $10,000? How about whiskey or vodka products?</h6>
+        <br><h6>5. Which rum products have sales greater than $10,000?</h6>
       <pre><code class="language-sql">
         SELECT item, description, category_name, SUM(total)
         FROM sales
@@ -235,7 +235,7 @@
         Having SUM(total) > 10000
         ORDER BY 4 DESC;
       </code></pre>
-      <strong>Answer: 166 rum products</strong>
+      <strong>Result: 166 rum products</strong>
 <table>
   <table class="table table-bordered table-striped table-hover">
      <thead>
@@ -290,7 +290,7 @@
         ORDER BY 2 DESC
         LIMIT 1;
       </code></pre>
-      <strong>Answer: Polk</strong>
+      <strong>Result: Polk</strong>
   <br>
   <br><h6>7. Which counties were in the top 10 counties for vodka sales in any month in 2014?</h6>
       <pre><code class="language-sql">
@@ -309,7 +309,7 @@
         WHERE monthly_rank_number <= 10 AND month = 1
         ORDER BY 4;
       </code></pre>
-      <strong>Answer:</strong>
+      <strong>Result:</strong>
 <table>
   <table class="table table-bordered table-striped table-hover">
       <thead>
@@ -383,17 +383,223 @@
     </tr>
   </tbody>
   </table>
+
+    <br><h6>8. How many times does a county appear in the “top 10 counties for vodka sales in a month” list over the course of 2014?</h6>
+      <pre><code class="language-sql">
+        WITH monthly_rank AS (
+          SELECT
+            county,
+            DATE_PART ('month', date) AS month,
+            SUM(total) AS monthly_sales,
+            RANK () OVER (PARTITION BY DATE_PART ('month', date) ORDER BY SUM(total)DESC) AS monthly_rank_number
+          FROM sales
+          WHERE category_name ILIKE '%vodka' AND DATE_PART ('year', date) = 2014
+          GROUP BY 1,2
+        )
+        SELECT county, COUNT(*)
+        FROM monthly_rank
+        WHERE monthly_rank_number <= 10
+        GROUP BY 1
+        ORDER BY 2 DESC;
+      </code></pre>
+      <strong>Result:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>County</th>
+      <th>Number of Top 10s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Black Hawk</td><td>12</td></tr>
+    <tr><td>Dubuque</td><td>12</td></tr>
+    <tr><td>Johnson</td><td>12</td></tr>
+    <tr><td>Linn</td><td>12</td></tr>
+    <tr><td>Polk</td><td>12</td></tr>
+    <tr><td>Pottawattamie</td><td>12</td></tr>
+    <tr><td>Scott</td><td>12</td></tr>
+    <tr><td>Woodbury</td><td>11</td></tr>
+    <tr><td>Story</td><td>10</td></tr>
+    <tr><td>Cerro Gordo</td><td>7</td></tr>
+    <tr><td>Dallas</td><td>6</td></tr>
+    <tr><td>Des Moines</td><td>1</td></tr>
+    <tr><td>Dickinson</td><td>1</td></tr>
+  </tbody>
+</table>
+<br><h6>9. What were the top 10 month-on-month growth rate?</h6>
+      <pre><code class="language-sql">
+        WITH store_monthly_sales AS (
+          SELECT
+            s.store,
+            str.name,
+            DATE_PART ('month', date) AS month,
+            SUM(total) as monthly_sales
+          FROM sales s
+          JOIN stores str
+          Using (store)
+          GROUP BY 1,2,3
+        )
+        SELECT
+          store,
+          name,
+          month,
+          monthly_sales,
+          LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month) AS prev_month,sales, ROUND(((monthly_sales - LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month)) / LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month))*100, 2) AS month_on_month_perc
+        FROM store_monthly_sales
+        ORDER BY 6 DESC NULLS LAST
+        LIMIT 10;
+      </code></pre>
+      <strong>Result:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+      <thead>
+    <tr>
+      <th>Store</th>
+      <th>Store Name</th>
+      <th>Month</th>
+      <th>Monthly Sales</th>
+      <th>Prev Month Sales</th>
+      <th>Month-on-Month Growth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2238</td>
+      <td>Adventureland Inn</td>
+      <td>5</td>
+      <td>$27,526.38</td>
+      <td>$883.24</td>
+      <td>3016.52%</td>
+    </tr>
+    <tr>
+      <td>4275</td>
+      <td>Fareway Stores #980 / Knoxville</td>
+      <td>9</td>
+      <td>$41,674.59</td>
+      <td>$2,925.30</td>
+      <td>1324.63%</td>
+    </tr>
+    <tr>
+      <td>4169</td>
+      <td>Super Quick 2 / Hubbell</td>
+      <td>11</td>
+      <td>$12,794.70</td>
+      <td>$985.92</td>
+      <td>1197.74%</td>
+    </tr>
+    <tr>
+      <td>4669</td>
+      <td>Vom Fass / Des Moines</td>
+      <td>10</td>
+      <td>$7,231.01</td>
+      <td>$649.24</td>
+      <td>1013.77%</td>
+    </tr>
+    <tr>
+      <td>4717</td>
+      <td>Walgreens #05512 / Bettendorf</td>
+      <td>8</td>
+      <td>$14,064.95</td>
+      <td>$1,412.70</td>
+      <td>895.61%</td>
+    </tr>
+    <tr>
+      <td>2667</td>
+      <td>Hy-Vee Mainstreet</td>
+      <td>3</td>
+      <td>$77,712.78</td>
+      <td>$7,878.87</td>
+      <td>886.34%</td>
+    </tr>
+    <tr>
+      <td>5058</td>
+      <td>Kum & Go # 542 / Urbandale</td>
+      <td>11</td>
+      <td>$11,686.97</td>
+      <td>$1,372.99</td>
+      <td>751.21%</td>
+    </tr>
+    <tr>
+      <td>5009</td>
+      <td>New Pioneer Food Co-op</td>
+      <td>8</td>
+      <td>$11,661.63</td>
+      <td>$1,423.98</td>
+      <td>718.95%</td>
+    </tr>
+    <tr>
+      <td>4899</td>
+      <td>Graettinger Market</td>
+      <td>7</td>
+      <td>$9,321.60</td>
+      <td>$1,172.52</td>
+      <td>695.01%</td>
+    </tr>
+    <tr>
+      <td>4598</td>
+      <td>Quik Trip #501 / E Euclid DM</td>
+      <td>5</td>
+      <td>$30,868.46</td>
+      <td>$4,166.58</td>
+      <td>640.86%</td>
+    </tr>
+  </tbody>
+  </table>
+  <br><h6>10. Sort the stores in latitude order from most northernly to most southernly.</h6>
+      <pre><code class="language-sql">
+        SELECT store, name, split_part(split_part(store_address, '(',2), ',', 1) AS latitude
+        FROM stores
+        ORDER BY 3 DESC
+        LIMIT 5;
+      </code></pre>
+      <strong>Result:</strong>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Store No.</th>
+      <th>Store Name</th>
+      <th>Latitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3596</td>
+      <td>Laddy’s Bar And Grill</td>
+      <td>43.49114240400007</td>
+    </tr>
+    <tr>
+      <td>4030</td>
+      <td>Buy Rite Foods</td>
+      <td>43.45480634900008</td>
+    </tr>
+    <tr>
+      <td>3914</td>
+      <td>Market Street Market</td>
+      <td>43.45480634900008</td>
+    </tr>
+    <tr>
+      <td>4006</td>
+      <td>Larchwood Offsale</td>
+      <td>43.45384534900006</td>
+    </tr>
+    <tr>
+      <td>4904</td>
+      <td>Larchwood Quick Stop</td>
+      <td>43.45355826500003</td>
+    </tr>
+  </tbody>
+</table>
+  
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-sql.min.js"></script>
         
       <br><h5><a href="https://inetapps.nus.edu.sg/aelp/">Explore the project's GitHub repository here</a></h5>
 
-        
     </div>    
-    
-    </div>
-
-      </div>
+   </div>
+  </div>
 
     </section><!-- /Services Section -->
 
