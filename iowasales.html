@@ -445,7 +445,8 @@
           name,
           month,
           monthly_sales,
-          LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month) AS prev_month,sales, ROUND(((monthly_sales - LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month)) / LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month))*100, 2) AS month_on_month_perc
+          LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month) AS prev_month_sales, 
+          ROUND(((monthly_sales - LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month)) / LAG(monthly_sales, 1) OVER (PARTITION BY store ORDER BY month))*100, 2) AS month_on_month_perc
         FROM store_monthly_sales
         ORDER BY 6 DESC NULLS LAST
         LIMIT 10;
